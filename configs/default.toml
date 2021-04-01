@@ -1,0 +1,20 @@
+[global]
+backend = "dingding"
+
+[dingding]
+type = "http"
+method = "POST"
+url = "https://oapi.dingtalk.com/robot/send?access_token=xxxxxxxx"
+headers."Content-Type" = "application/json"
+body = "{\"msgtype\": \"text\",\"text\": {\"content\": \"{title}\n{message}\"}}"
+
+[work_weixin]
+type = "work_weixin"
+corpid = ""
+agentid = ""
+corpsecret = ""
+
+
+[email]
+type = "shell"
+command = "echo \"${message}\" | mail -s \"${title}\" root"
